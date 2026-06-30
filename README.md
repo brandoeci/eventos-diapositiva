@@ -50,6 +50,7 @@ docker compose up -d
 ```
 
 **[CAPTURA-1-DOCKER-COMPOSE-UP]**
+
 <img width="1043" height="226" alt="image" src="https://github.com/user-attachments/assets/5cc2380a-245c-4e45-afb9-e0762c34e6c7" />
 
 ### 2. Ejecutar la aplicación desde IntelliJ
@@ -58,6 +59,7 @@ Run sobre `RedisEDAApplication`. Al iniciar, la app crea los tres grupos de
 consumidores y registra los listeners sobre el stream.
 
 **[CAPTURA-2-APP-INICIADA]**
+
 <img width="598" height="114" alt="image" src="https://github.com/user-attachments/assets/b43e1bfa-e4fd-4370-98aa-2ed790b67e75" />
 
 
@@ -76,11 +78,13 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/transferencias" -Method Post -
 ```
 
 **[CAPTURA-3-POST-TRANSFERENCIA]**
+
 <img width="552" height="32" alt="image" src="https://github.com/user-attachments/assets/09a84453-6995-44d1-83ee-785373544d85" />
 
 ### 4. Verificar el flujo completo en los logs
 
 **[CAPTURA-4-LOGS-FLUJO-NORMAL]**
+
 <img width="1768" height="173" alt="image" src="https://github.com/user-attachments/assets/f14b67c6-3953-472a-ac24-53b391d54f19" />
 
 ### 5. Activar la simulación de caída en Auditoría
@@ -90,6 +94,7 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/transferencias/auditoria/caida
 ```
 
 **[CAPTURA-5-ACTIVAR-CAIDA]**
+
 <img width="1592" height="55" alt="image" src="https://github.com/user-attachments/assets/80d9b8fa-9b48-44c7-8526-ce7ae7d99473" />
 
 ### 6. Publicar una nueva transferencia y observar la caída simulada
@@ -107,6 +112,7 @@ Invoke-RestMethod -Uri "http://localhost:8080/api/transferencias" -Method Post -
 ```
 
 **[CAPTURA-6-LOGS-CAIDA-SIMULADA]**
+
 <img width="565" height="28" alt="image" src="https://github.com/user-attachments/assets/73b9456e-1fe4-4caa-846c-2d2efc53a734" />
 
 
@@ -118,6 +124,7 @@ XPENDING banco.transferencias auditoria-group - + 10
 ```
 
 **[CAPTURA-7-XPENDING]**
+
 <img width="1758" height="61" alt="image" src="https://github.com/user-attachments/assets/238747f5-9a98-4e53-bbae-f74bd951847b" />
 
 ### 8. Reclamar el mensaje pendiente (recuperación tras la caída)
@@ -136,6 +143,7 @@ XACK banco.transferencias auditoria-group <ID-del-mensaje>
 ```
 
 **[CAPTURA-9-XACK-MANUAL]**
+
 <img width="920" height="485" alt="image" src="https://github.com/user-attachments/assets/dcbcbdb2-8e17-4966-9960-b4428d049393" />
 
 ### 10. Verificar que ya no queden pendientes
@@ -145,6 +153,7 @@ XPENDING banco.transferencias auditoria-group - + 10
 ```
 
 **[CAPTURA-10-XPENDING-VACIO]**
+
 <img width="747" height="80" alt="image" src="https://github.com/user-attachments/assets/bba458fc-238a-43e2-abc6-6655590b8763" />
 
 ## Conclusiones
